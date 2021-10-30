@@ -4,6 +4,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import datasets
 from torchvision.transforms import  ToTensor, Lambda, Compose
+import matplotlib.pyplot as plt
 
 classes = ["T-shirt/top",
     "Trouser",
@@ -56,9 +57,10 @@ test_data = datasets.FashionMNIST(
 )
 
 
-x,y = test_data[i][0], test_data[i][1]
+x,y = test_data[0][0], test_data[0][1]
+  
 with torch.no_grad():
     pred= model(x)
     #pred.argmax : 예측 값의 최대 값
-    predicted, actual = classes[pred[i].argmax(0)], classes[y]
+    predicted, actual = classes[pred[0].argmax(0)], classes[y]
     print(f'Predicted: "{predicted}", Actual: "{actual}"')

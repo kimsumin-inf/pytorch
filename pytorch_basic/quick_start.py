@@ -84,7 +84,7 @@ def train(dataloader, model, loss_fn, optimizer):
             loss.backward()
             # method를 통해 argument로 전달받은 parameter를 업데이트 한다.
             optimizer.step()
-
+            
             if batch % 100 ==0:
                 loss , current = loss.item(), batch * len(X)
                 print(f"loss : {loss :>7f}  [{current:>5d}/{size:>5d}]")
